@@ -154,6 +154,28 @@ wcl -d3 main.c
 wd main.exe
 ```
 
+## Create a floppy disk on Linux
+
+```bash
+
+# create floppy disk image
+head -c 1474560 /dev/zero > floppy.vfd
+
+mkfs.vfat floppy.vfd
+
+# mount floppy on Linux
+sudo mkdir -p /media/dosdisk
+
+sudo mount -o loop floppy.vfd /media/dosdisk/
+
+# copy files to floppy as needed
+
+# un-mount floppy disk from Linux
+sudo umount /media/dosdisk/
+
+# now you can insert the floppy.vfd image into FreeDOS via a VirtualBox floppy drive
+```
+
 ## Have Fun
 
 You now have the requisite skills to create non-trivial programs.
