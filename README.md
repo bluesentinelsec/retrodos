@@ -115,7 +115,7 @@ wcc gfx.c
 3. Package library
 
 ```
-# wlib <object file> <library name>
+# wlib <library name> +<object file name>
 
 wlib gfx +gfx
 ```
