@@ -96,6 +96,41 @@ wcl -d3 main.c
 wd main.exe
 ```
 
+## Remote Debugging
+
+You can also perform remote debugging using DosBox.
+
+To do this, you must build DosBox Staging from source with the debugger features enabled.
+
+https://github.com/dosbox-staging/dosbox-staging/blob/main/BUILD.md
+
+You can then start your program in the debugger like so:
+
+```
+# from DosBox shell
+debug YOUR_APP.exe
+```
+
+You can also invoke the debugger while the app is running by pressing the BREAK key (fn + b + alt on my Dell laptop, which doesn't have a break key)
+
+Run: `fn + F5`
+
+Step over: `fn + F10`
+
+Breakpoints: `bp 01ED:0010`
+
+It is difficult to find and break on your function.
+
+One approach is to wrap your function in an infinite loop and then invoke the debugger while your program is looping.
+
+```
+while (1 == 1)
+{
+    // press BREAK to launch debugger while in this loop
+    YourFunction();
+}
+```
+
 ## Compile a static library
 
 1. Create your .h and .c file
